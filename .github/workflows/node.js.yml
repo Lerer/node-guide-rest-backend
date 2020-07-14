@@ -37,9 +37,9 @@ jobs:
     - name: check for downloaded files
       run: ls -l *.jar
     - name: run scan
-      run: java -jar veracode-wrapper.jar -vid $VERACODE_API_ID -vkey $VERACODE_API_KEY
+      run: java -jar veracode-wrapper.jar -vid ${{secrets.VERACODE_API_ID}} -vkey ${{secrets.VERACODE_API_KEY}}
         -action uploadandscan -appname "NodeJS guide rest backend" -filepath toscan.zip
-        -createprofile false -version "commit $CI_COMMIT_SHORT_SHA pipeline $CI_PIPELINE_ID job $CI_JOB_ID"
+        -createprofile false -version "commit $GITHUB_SHA workflow $GITHUB_WORKFLOW run $GITHUB_RUN_ID"
         -sandboxname "github-action" -createsandbox true -autoscan true -scantimeout 15
     - name: after
       run: echo "complete"
