@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
+        node-version: [14.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -27,7 +27,7 @@ jobs:
     - run: npm install
     - run: npm run build --if-present
     - name: ZIP files
-      run: zip -r toscan.zip . -x ".git/*" ".github/*"
+      run: zip -r toscan.zip . -x ".git/*" ".github/*" ".gitignore"
     - name: Release to Github
       run: echo "Release"
     
