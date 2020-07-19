@@ -35,7 +35,7 @@ jobs:
     - name: Run Pipeline Scanner
       continue-on-error: true
       run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --file "toscan.zip" --fail_on_severity="Very High, High,Medium" -jo true
-    - name: get the output conversion 
+    - name: Convert pipeline scan output to SARIF format 
       id: convert
       uses: Lerer/veracode-pipeline-scan-results-to-sarif@v1.0
       with:
