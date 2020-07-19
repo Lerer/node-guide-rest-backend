@@ -39,7 +39,7 @@ jobs:
       run: ls -la
     - name: get the output conversion 
       id: convert
-      uses: Lerer/veracode-pipeline-scan-results-to-sarif
+      uses: Lerer/veracode-pipeline-scan-results-to-sarif@v1
       with:
         pipeline-results-json: results.json
     - name: check result file
