@@ -37,7 +37,7 @@ jobs:
       run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --file "toscan.zip" --fail_on_severity="Very High, High,Medium" -jo true
     - name: Convert pipeline scan output to SARIF format 
       id: convert
-      uses: Lerer/veracode-pipeline-scan-results-to-sarif@v1.0.3beta
+      uses: Lerer/veracode-pipeline-scan-results-to-sarif@v1.0.3
       with:
         pipeline-results-json: results.json
     - name: upload sarif file to repository
